@@ -24,6 +24,9 @@
     <ClInclude Include="lab1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="lab2.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -33,6 +36,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="lab1.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="lab2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
