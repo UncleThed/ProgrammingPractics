@@ -166,6 +166,54 @@ void PlayGuessNumber()
 	cout << "\nВерно!!! Вы затратили " << shots << " попыток" << endl;
 }
 
+void InsertionSort1(int integerArray[5])
+{
+	for (int i = 1; i < 5; i++)
+		for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
+			swap(integerArray[j - 1], integerArray[j]);
+}
+void InsertionSort2(int integerArray[], int arraySize)
+{
+	for (int i = 1; i < arraySize; i++)
+		for (int j = i; j > 0 && integerArray[j - 1] > integerArray[j]; j--)
+			swap(integerArray[j - 1], integerArray[j]);
+}
+void InsertionSort3(int* arrayPointer, int arraySize)
+{
+	for (int i = 1; i < arraySize; i++)
+		for (int j = i; j > 0 && arrayPointer[j - 1] > arrayPointer[j]; j--)
+		{
+			swap(arrayPointer[j - 1], arrayPointer[j]);
+		}
+}
+
+void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult)
+{
+	for (int i = 0; i < rowsA; i++)
+	{
+		for (int j = 0; j < columnsB; j++)
+		{
+			matrixResult[i][j] = 0;
+			for (int k = 0; k < columnsA; k++)
+			{
+				matrixResult[i][j] += (matrixA[i][k] * matrixB[k][j]);
+			}
+		}
+	}
+}
+
+void PrintMatrics(int** matrics, int cols, int rows)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			cout << matrics[i][j] << ' ';
+		}
+		cout << endl;
+	}
+}
+
 void LaunchTask2()
 {
 	char key;						//введенный с клавиатуры символ
@@ -186,12 +234,12 @@ void LaunchTask2()
 
 		switch (AsciiValue)
 		{
-		case '0':
+		case '1':
 			PrintHelloWorld();
 			cout << endl;
 			system("pause");
 			break;
-		case '1':
+		case '2':
 		{
 			cout << "Введите первое число: ";
 			int value1;
@@ -214,7 +262,7 @@ void LaunchTask2()
 			system("pause");
 			break;
 		}
-		case '2':
+		case '3':
 		{
 			cout << "Введите первое число: ";
 			int dividend = isCorrected();
@@ -227,7 +275,7 @@ void LaunchTask2()
 			system("pause");
 			break;
 		}
-		case '3':
+		case '4':
 		{
 			cout << "Задайте целочисленные параметры квадратного уравнения\n";
 			cout << "Введите значение a: ";
@@ -257,7 +305,7 @@ void LaunchTask2()
 			system("pause");
 			break;
 		}
-		case '4':
+		case '5':
 		{
 			cout << "Задайте целочисленные параметры квадратного уравнения\n";
 			cout << "Введите значение a: ";
@@ -285,7 +333,7 @@ void LaunchTask2()
 			system("pause");
 			break;
 		}
-		case '5':
+		case '6':
 		{
 			int a = 1;
 			int b = 2;
@@ -299,7 +347,7 @@ void LaunchTask2()
 			system("pause");
 			break;
 		}
-		case '6':
+		case '7':
 			cout << "Значение глобальной переменной: " << globalVariable << endl;
 			GlobalPlusTwo();
 			cout << "Значение глобальной переменной: " << globalVariable << endl;
@@ -311,7 +359,7 @@ void LaunchTask2()
 			cout << "Значение глобальной переменной: " << globalVariable << endl;
 			system("pause");
 			break;
-		case '7':
+		case '8':
 		{
 			cout << "Введите основание степени: ";
 			int base = isCorrected();
@@ -322,10 +370,92 @@ void LaunchTask2()
 			system("pause");
 			break;
 		}
-		case '8':
+		case '9':
 			PlayGuessNumber();
 			system("pause");
 			break;
+		case '0':
+		{
+			const int arraySize = 5;
+			int integerArray[arraySize];
+			int* arrayPointer = integerArray;
+			cout << "Массив до сортировки:\n";
+			for (int i = 0; i < arraySize; i++)
+			{
+				integerArray[i] = rand() % 100;
+				cout << integerArray[i] << " ";
+			}
+			/*InsertionSort1(integerArray);*/
+			//InsertionSort2(integerArray, arraySize);
+			InsertionSort3(arrayPointer, arraySize);
+			cout << "\nМассив после сортировки:\n";
+			for (int i = 0; i < arraySize; i++)
+			{
+				cout << integerArray[i] << " ";
+			}
+			cout << endl;
+			system("pause");
+			break;
+		}
+		case '-':
+		{
+			cout << "Введите количество строк первого массива: ";
+			int rowsA = isCorrected();
+			cout << "Введите количество столбцов первого массива: ";
+			int columnsA = isCorrected();
+			cout << "Введите количество строк второго массива: ";
+			int rowsB = isCorrected();
+			cout << "Введите количество столбцов второго массива: ";
+			int columnsB = isCorrected();
+
+			int rowsResult = rowsA;
+			int columnsResult = columnsB;
+
+			int** matrixA = new int*[rowsA];
+			for (int i = 0; i < rowsA; i++)
+				matrixA[i] = new int[columnsA];
+
+			int** matrixB = new int*[rowsB];
+			for (int i = 0; i < rowsB; i++)
+				matrixB[i] = new int[columnsB];
+
+			int** matrixResult = new int*[rowsResult];
+			for (int i = 0; i < rowsResult; i++)
+				matrixResult[i] = new int[columnsResult];
+
+			//--------------------------------------------------
+			
+			for (int i = 0; i < rowsA; i++)
+				for (int j = 0; j < columnsA; j++)
+					matrixA[i][j] = rand() % 10;
+
+			for (int i = 0; i < rowsB; i++)
+				for (int j = 0; j < columnsB; j++)
+					matrixB[i][j] = rand() % 10;
+
+			MultiplyMatrices(matrixA, rowsA, columnsA, matrixB, rowsB, columnsB, matrixResult);
+
+			cout << "First matrics:" << endl;
+			PrintMatrics(matrixA, columnsA, rowsA);
+			cout << endl << "____________________________" << endl;
+			cout << "Second matrics:" << endl;
+			PrintMatrics(matrixB, columnsB, rowsB);
+			cout << endl << "____________________________" << endl;
+			cout << "Result matrics:" << endl;
+			PrintMatrics(matrixResult, columnsResult, rowsResult);
+
+			for (int i = 0; i < rowsA; i++)
+				delete[] matrixA[i];
+			for (int i = 0; i < rowsB; i++)
+				delete[] matrixB[i];
+			for (int i = 0; i < rowsResult; i++)
+				delete[] matrixResult[i];
+			delete[] matrixA, matrixB, matrixResult;
+
+			cout << endl << endl << "______________________________________________________" << endl;
+			cout << "---the program is complete---" << endl;
+			system("pause");
+		}
 		}
 
 

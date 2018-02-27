@@ -26,3 +26,9 @@ double GetPower(int base, int power);
 
 void PlayGuessNumber();
 
+void InsertionSort1(int integerArray[5]);
+void InsertionSort2(int integerArray[], int arraySize);
+void InsertionSort3(int* arrayPointer, int arraySize);
+
+void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult);
+
