@@ -1,10 +1,11 @@
 #include "stdafx.h"
 using namespace std;
 
-//объявление глобальной переменной
+//Объявление глобальной переменной
 int globalVariable = 7;
 
-int isNumber()
+//Проверка корректности ввода
+int EnterNumber()
 {
 	char number = _getch();
 	while (number > '9' || number < '0')
@@ -14,7 +15,7 @@ int isNumber()
 	}
 	return (int)number - 48; //перевод символа в цифру
 }
-int isCorrected()
+int EnterInteger()
 {
 	int value;
 	bool good = true;
@@ -70,40 +71,64 @@ int Divide(int dividend, int divisor)
 
 int GetRoots(int a, int b, int c, double* x1, double* x2)
 {
-	int d = b * b - 4 * a * c;
-	if (d > 0)
+	if (a == 0 && b == 0)
 	{
-		*x1 = (-b + sqrt(d)) / (2 * a);
-		*x2 = (-b - sqrt(d)) / (2 * a);
-		return 2;
+		return 0;
 	}
-	else if (d == 0)
+	else if (a == 0)
 	{
-		*x1 = -b / (2 * a);
+		*x1 = (double)-c / b;
 		return 1;
 	}
 	else
 	{
-		return 0;
+		int d = b * b - 4 * a * c;
+		if (d > 0)
+		{
+			*x1 = (-b + sqrt(d)) / (2 * a);
+			*x2 = (-b - sqrt(d)) / (2 * a);
+			return 2;
+		}
+		else if (d == 0)
+		{
+			*x1 = (double)-b / (2 * a);
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
 	}
 }
 int GetRoots(int a, int b, int c, double& x1, double& x2)
 {
-	int d = b * b - 4 * a * c;
-	if (d > 0)
+	if (a == 0 && b == 0)
 	{
-		x1 = (-b + sqrt(d)) / (2 * a);
-		x2 = (-b - sqrt(d)) / (2 * a);
-		return 2;
+		return 0;
 	}
-	else if (d == 0)
+	else if (a == 0)
 	{
-		x1 = -b / (2 * a);
+		x1 = (double)-c / b;
 		return 1;
 	}
 	else
 	{
-		return 0;
+		int d = b * b - 4 * a * c;
+		if (d > 0)
+		{
+			x1 = (-b + sqrt(d)) / (2 * a);
+			x2 = (-b - sqrt(d)) / (2 * a);
+			return 2;
+		}
+		else if (d == 0)
+		{
+			x1 = (double)-b / (2 * a);
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
 	}
 }
 
@@ -153,14 +178,14 @@ void PlayGuessNumber()
 {
 	int guessNumber = rand() % 10;
 	cout << "Выберите цифру от 0 до 9: ";
-	int enteredNumber = isNumber();
+	int enteredNumber = EnterNumber();
 	cout << enteredNumber;
-	int shots = 0;
+	int shots = 1;
 	while (enteredNumber != guessNumber)
 	{
 		shots++;
 		cout << "\nНеверно! Попробуйте снова\nВыберите цифру от 0 до 9: ";
-		enteredNumber = isNumber();
+		enteredNumber = EnterNumber();
 		cout << enteredNumber;
 	}
 	cout << "\nВерно!!! Вы затратили " << shots << " попыток" << endl;
@@ -202,18 +227,21 @@ void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int
 	}
 }
 
-void PrintMatrics(int** matrics, int cols, int rows)
+void PrintMatrix(int** matrix, int columns, int rows)
 {
 	for (int i = 0; i < rows; i++)
 	{
-		for (int j = 0; j < cols; j++)
+		for (int j = 0; j < columns; j++)
 		{
-			cout << matrics[i][j] << ' ';
+			cout.width(8);
+			cout << matrix[i][j];
 		}
 		cout << endl;
 	}
 }
 
+//-----------------------------------------------------------------
+//Лаунчер лабораторной работы
 void LaunchTask2()
 {
 	char key;						//введенный с клавиатуры символ
@@ -223,11 +251,20 @@ void LaunchTask2()
 	{
 		system("cls");
 
-		cout << "Введите значение с клавиатуры соответствующее";
-		cout << "\n - числу от 1 до 9";
-		cout << "\n - символам a, b";
+		cout << "Введите значение для запуска соответствующего задания";
+		cout << "\n 1: Вывод Hello World!";
+		cout << "\n 2: Калькулятор";
+		cout << "\n 3: Целочисленное деление";
+		cout << "\n 4: Решение квадратного уравнения (передача указателя)";
+		cout << "\n 5: Решение квадратного уравнения (передача ссылки)";
+		cout << "\n 6: Перегрузка функций";
+		cout << "\n 7: Работа с глобальной переменной";
+		cout << "\n 8: Возведение в степень (рекурсивно)";
+		cout << "\n 9: Игра \"Угадай число\"";
+		cout << "\n 0: Сортировка массива (три способа передачи массива)";
+		cout << "\n -: Умножение матриц";
 		cout << "\nДля завершения работы программы нажмите Esc";
-		cout << "\n__________________________________________\n";
+		cout << "\n__________________________________________" << endl;
 
 		key = _getch();
 		AsciiValue = key;
@@ -235,19 +272,22 @@ void LaunchTask2()
 		switch (AsciiValue)
 		{
 		case '1':
+			cout << "Вывод Hello World!\n";
 			PrintHelloWorld();
 			cout << endl;
 			system("pause");
 			break;
 		case '2':
 		{
-			cout << "Введите первое число: ";
+			cout << "Калькулятор\n";
+
+			cout << "\nВведите первое число: ";
 			int value1;
-			value1 = isCorrected();
+			value1 = EnterInteger();
 
 			cout << "Введите второе число: ";
 			int value2;
-			value2 = isCorrected();
+			value2 = EnterInteger();
 
 			cout << "Enter mathematic operation (+, -, *, /, %)";
 			char key;
@@ -264,11 +304,13 @@ void LaunchTask2()
 		}
 		case '3':
 		{
-			cout << "Введите первое число: ";
-			int dividend = isCorrected();
+			cout << "Целочисленное деление\n";
+
+			cout << "\nВведите первое число: ";
+			int dividend = EnterInteger();
 
 			cout << "Введите второе число: ";
-			int divisor = isCorrected();
+			int divisor = EnterInteger();
 
 			int result = Divide(dividend, divisor);
 			cout << endl << dividend << " / " << divisor << " = " << result << endl;
@@ -277,13 +319,15 @@ void LaunchTask2()
 		}
 		case '4':
 		{
-			cout << "Задайте целочисленные параметры квадратного уравнения\n";
+			cout << "Решение квадратного уравнения (передача указателя)\n";
+
+			cout << "\nЗадайте целочисленные параметры квадратного уравнения\n";
 			cout << "Введите значение a: ";
-			int a = isCorrected();
+			int a = EnterInteger();
 			cout << "Введите значение b: ";
-			int b = isCorrected();
+			int b = EnterInteger();
 			cout << "Введите значение c: ";
-			int c = isCorrected();
+			int c = EnterInteger();
 			double x1, x2;			// корни уравнения
 			double* x1Pointer = &x1;
 			double* x2Pointer = &x2;
@@ -307,13 +351,15 @@ void LaunchTask2()
 		}
 		case '5':
 		{
-			cout << "Задайте целочисленные параметры квадратного уравнения\n";
+			cout << "Решение квадратного уравнения (передача ссылки)\n";
+
+			cout << "\nЗадайте целочисленные параметры квадратного уравнения\n";
 			cout << "Введите значение a: ";
-			int a = isCorrected();
+			int a = EnterInteger();
 			cout << "Введите значение b: ";
-			int b = isCorrected();
+			int b = EnterInteger();
 			cout << "Введите значение c: ";
-			int c = isCorrected();
+			int c = EnterInteger();
 			double x1, x2;			// корни уравнения
 
 			int countRoots = GetRoots(a, b, c, x1, x2);
@@ -335,6 +381,8 @@ void LaunchTask2()
 		}
 		case '6':
 		{
+			cout << "Перегрузка функций\n\n";
+
 			int a = 1;
 			int b = 2;
 			SummNumbers(a, b);
@@ -348,7 +396,9 @@ void LaunchTask2()
 			break;
 		}
 		case '7':
-			cout << "Значение глобальной переменной: " << globalVariable << endl;
+			cout << "Работа с глобальной переменной\n";
+
+			cout << "\nЗначение глобальной переменной: " << globalVariable << endl;
 			GlobalPlusTwo();
 			cout << "Значение глобальной переменной: " << globalVariable << endl;
 			GlobalMultiplyThree();
@@ -361,33 +411,38 @@ void LaunchTask2()
 			break;
 		case '8':
 		{
-			cout << "Введите основание степени: ";
-			int base = isCorrected();
+			cout << "Возведение в степень (рекурсивно)\n";
+
+			cout << "\nВведите основание степени: ";
+			int base = EnterInteger();
 			cout << "Введите показатель степени: ";
-			int power = isCorrected();
+			int power = EnterInteger();
 
 			cout << base << " в степени " << power << " = " << GetPower(base, power) << endl;
 			system("pause");
 			break;
 		}
 		case '9':
+			cout << "Игра \"Угадай число\"\n\n";
+
 			PlayGuessNumber();
 			system("pause");
 			break;
 		case '0':
 		{
+			cout << "Сортировка массива (три способа передачи массива)\n";
+
 			const int arraySize = 5;
 			int integerArray[arraySize];
-			int* arrayPointer = integerArray;
-			cout << "Массив до сортировки:\n";
+			cout << "\nМассив до сортировки:\n";
 			for (int i = 0; i < arraySize; i++)
 			{
 				integerArray[i] = rand() % 100;
 				cout << integerArray[i] << " ";
 			}
 			/*InsertionSort1(integerArray);*/
-			//InsertionSort2(integerArray, arraySize);
-			InsertionSort3(arrayPointer, arraySize);
+			InsertionSort2(integerArray, arraySize);
+			//InsertionSort3(integerArray, arraySize);
 			cout << "\nМассив после сортировки:\n";
 			for (int i = 0; i < arraySize; i++)
 			{
@@ -399,65 +454,70 @@ void LaunchTask2()
 		}
 		case '-':
 		{
-			cout << "Введите количество строк первого массива: ";
-			int rowsA = isCorrected();
-			cout << "Введите количество столбцов первого массива: ";
-			int columnsA = isCorrected();
-			cout << "Введите количество строк второго массива: ";
-			int rowsB = isCorrected();
-			cout << "Введите количество столбцов второго массива: ";
-			int columnsB = isCorrected();
+			cout << "Умножение матриц\n";
 
-			int rowsResult = rowsA;
-			int columnsResult = columnsB;
+			cout << "\nВведите количество строк первой матрицы: ";
+			int rowsA = EnterInteger();
+			cout << "Введите количество столбцов первой матрицы: ";
+			int columnsA = EnterInteger();
+			cout << "\nВведите количество строк второй матрицы: ";
+			int rowsB = EnterInteger();
+			cout << "Введите количество столбцов второй матрицы: ";
+			int columnsB = EnterInteger();
 
-			int** matrixA = new int*[rowsA];
-			for (int i = 0; i < rowsA; i++)
-				matrixA[i] = new int[columnsA];
+			if (columnsA == rowsB)
+			{
+				int rowsResult = rowsA;
+				int columnsResult = columnsB;
 
-			int** matrixB = new int*[rowsB];
-			for (int i = 0; i < rowsB; i++)
-				matrixB[i] = new int[columnsB];
+				int** matrixA = new int*[rowsA];
+				for (int i = 0; i < rowsA; i++)
+					matrixA[i] = new int[columnsA];
 
-			int** matrixResult = new int*[rowsResult];
-			for (int i = 0; i < rowsResult; i++)
-				matrixResult[i] = new int[columnsResult];
+				int** matrixB = new int*[rowsB];
+				for (int i = 0; i < rowsB; i++)
+					matrixB[i] = new int[columnsB];
 
-			//--------------------------------------------------
-			
-			for (int i = 0; i < rowsA; i++)
-				for (int j = 0; j < columnsA; j++)
-					matrixA[i][j] = rand() % 10;
+				int** matrixResult = new int*[rowsResult];
+				for (int i = 0; i < rowsResult; i++)
+					matrixResult[i] = new int[columnsResult];
 
-			for (int i = 0; i < rowsB; i++)
-				for (int j = 0; j < columnsB; j++)
-					matrixB[i][j] = rand() % 10;
+				//--------------------------------------------------
 
-			MultiplyMatrices(matrixA, rowsA, columnsA, matrixB, rowsB, columnsB, matrixResult);
+				for (int i = 0; i < rowsA; i++)
+					for (int j = 0; j < columnsA; j++)
+						matrixA[i][j] = rand() % 100;
 
-			cout << "First matrics:" << endl;
-			PrintMatrics(matrixA, columnsA, rowsA);
-			cout << endl << "____________________________" << endl;
-			cout << "Second matrics:" << endl;
-			PrintMatrics(matrixB, columnsB, rowsB);
-			cout << endl << "____________________________" << endl;
-			cout << "Result matrics:" << endl;
-			PrintMatrics(matrixResult, columnsResult, rowsResult);
+				for (int i = 0; i < rowsB; i++)
+					for (int j = 0; j < columnsB; j++)
+						matrixB[i][j] = rand() % 100;
 
-			for (int i = 0; i < rowsA; i++)
-				delete[] matrixA[i];
-			for (int i = 0; i < rowsB; i++)
-				delete[] matrixB[i];
-			for (int i = 0; i < rowsResult; i++)
-				delete[] matrixResult[i];
-			delete[] matrixA, matrixB, matrixResult;
+				MultiplyMatrices(matrixA, rowsA, columnsA, matrixB, rowsB, columnsB, matrixResult);
 
-			cout << endl << endl << "______________________________________________________" << endl;
-			cout << "---the program is complete---" << endl;
+				cout << "Первая матрица:" << endl;
+				PrintMatrix(matrixA, columnsA, rowsA);
+				cout << "\n____________________________" << endl;
+				cout << "Вторая матрица:" << endl;
+				PrintMatrix(matrixB, columnsB, rowsB);
+				cout << "\n____________________________" << endl;
+				cout << "Результат:" << endl;
+				PrintMatrix(matrixResult, columnsResult, rowsResult);
+
+				for (int i = 0; i < rowsA; i++)
+					delete[] matrixA[i];
+				for (int i = 0; i < rowsB; i++)
+					delete[] matrixB[i];
+				for (int i = 0; i < rowsResult; i++)
+					delete[] matrixResult[i];
+				delete[] matrixA, matrixB, matrixResult;
+
+				cout << "\n______________________________________________________" << endl;
+			}
+			else
+				cout << "\nКоличество столбцов матрицы A должно быть равно количеству строк матрицы B" << endl;
 			system("pause");
+			break;
 		}
 		}
-
-
 	}
 }
