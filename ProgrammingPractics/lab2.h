@@ -1,11 +1,5 @@
 #pragma once
 
-void LaunchTask2();
-
-//Корректный ввод
-int EnterInteger();
-int EnterNumber();
-
 void PrintHelloWorld();
 
 double MakeCalculation(int value1, int value2, char operationKey);
@@ -39,4 +33,7 @@ void InsertionSort3(int* arrayPointer, int arraySize);
 //Умножение матриц
 void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult);
 void PrintMatrix(int** matrix, int columns, int rows);
+
+//Лаунчер второй лабораторной работы
+void LaunchTask2();
 

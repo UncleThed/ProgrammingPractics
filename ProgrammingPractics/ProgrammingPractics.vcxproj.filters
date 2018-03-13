@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\lab1">
+      <UniqueIdentifier>{6d1624ea-5753-4ec5-8e55-2dc136b6cba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\lab2">
+      <UniqueIdentifier>{46e04682-0d19-4587-a83a-cea641fff9e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\lab3">
+      <UniqueIdentifier>{00d06b0c-4621-4432-ac79-007e86b48efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab1">
+      <UniqueIdentifier>{99ff0e92-a950-42f6-8d92-12fb5af2bc57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab2">
+      <UniqueIdentifier>{264aa99a-c849-4555-8387-f71efbc26a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab3">
+      <UniqueIdentifier>{93f2d2b6-4439-411e-b7c6-d412cc80498f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -22,9 +40,15 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="lab1.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\lab1</Filter>
     </ClInclude>
     <ClInclude Include="lab2.h">
+      <Filter>Файлы заголовков\lab2</Filter>
+    </ClInclude>
+    <ClInclude Include="lab3.h">
+      <Filter>Файлы заголовков\lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,9 +60,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="lab1.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\lab1</Filter>
     </ClCompile>
     <ClCompile Include="lab2.cpp">
+      <Filter>Исходные файлы\lab2</Filter>
+    </ClCompile>
+    <ClCompile Include="lab3.cpp">
+      <Filter>Исходные файлы\lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
