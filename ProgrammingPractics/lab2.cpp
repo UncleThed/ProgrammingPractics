@@ -1,39 +1,9 @@
 #include "stdafx.h"
+
 using namespace std;
 
 //Объявление глобальной переменной
 int globalVariable = 7;
-
-//Проверка корректности ввода
-int EnterNumber()
-{
-	char number = _getch();
-	while (number > '9' || number < '0')
-	{
-		cout << "\nНеподходящий символ!\nВыберите цифру от 0 до 9: ";
-		number = _getch();
-	}
-	return (int)number - 48; //перевод символа в цифру
-}
-int EnterInteger()
-{
-	int value;
-	bool good = true;
-	do
-	{
-		cin >> value;
-		if (!(good = cin.good()))
-		{
-			cout << "Ошибка ввода!" << endl;
-			cout << "Введите целочисленное значение: ";
-		}
-		cin.clear();
-		fflush(stdin);
-		while (cin.get() != '\n');
-	} while (!good);
-
-	return value;
-}
 
 void PrintHelloWorld()
 {
@@ -64,9 +34,7 @@ double MakeCalculation(int value1, int value2, char operationKey)
 
 int Divide(int dividend, int divisor)
 {
-	int result;
-	result = dividend / divisor;
-	return result;
+	return dividend / divisor;
 }
 
 int GetRoots(int a, int b, int c, double* x1, double* x2)
@@ -464,6 +432,21 @@ void LaunchTask2()
 			int rowsB = EnterInteger();
 			cout << "Введите количество столбцов второй матрицы: ";
 			int columnsB = EnterInteger();
+
+			while (rowsA < 1 || columnsA < 1 || rowsB < 1 || columnsB < 1)
+			{
+				cout << "\nНедопустимые параметры для инициализации";
+				cout << "\nПовторите ввод!\n";
+
+				cout << "\nВведите количество строк первой матрицы: ";
+				int rowsA = EnterInteger();
+				cout << "Введите количество столбцов первой матрицы: ";
+				int columnsA = EnterInteger();
+				cout << "\nВведите количество строк второй матрицы: ";
+				int rowsB = EnterInteger();
+				cout << "Введите количество столбцов второй матрицы: ";
+				int columnsB = EnterInteger();
+			}
 
 			if (columnsA == rowsB)
 			{
