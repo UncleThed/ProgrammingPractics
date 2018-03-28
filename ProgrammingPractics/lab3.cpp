@@ -412,7 +412,8 @@ void LaunchTask3()
 		{
 			cout << "Замена пробелов на символы табуляции\n";
 
-			char str[] = "What::::::we::can::::::::::::do::";
+			//char str[] = "What::::::we::can::::::::::::do::";
+			char str[] = "Cake::::is::::a:lie!";
 			char* resultStr;
 
 			cout << "!\t!\t!\t!\t!\t!\t!" << endl;

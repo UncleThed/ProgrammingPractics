@@ -51,7 +51,7 @@ void AddLast(List* list)
 	list->tail = newNode;
 }
 
-void Insert(List* list, Person person, int index)
+void Insert(List* list, Person person, int index)//todo персону передавать по указателю
 {
 	Node* newNode = new Node;
 	newNode->person = person;
@@ -201,7 +201,7 @@ void LaunchTask4()
 	int AsciiValue = 0;				//его аски код
 
 	List* list = new List;
-
+	
 	while (AsciiValue != 27)
 	{
 		system("cls");
@@ -266,7 +266,7 @@ void LaunchTask4()
 		}
 		case '4':
 		{
-			cout << "Удаление по индексу: ";		
+			cout << "Удаление по индексу: ";
 			int index = EnterInteger();
 
 			Remove(list, index);

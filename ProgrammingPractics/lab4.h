@@ -5,7 +5,7 @@
 
 struct Node
 {
-	Person person;
+	Person person;// хранить указатель на персону
 	Node* next = NULL;
 	Node* prev = NULL;
 };
