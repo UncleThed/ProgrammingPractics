@@ -1,9 +1,30 @@
 #pragma once
-#include "PersonListItem.h"
+#include "Person.h"
 
 class PersonList
 {
 	private:
+		class PersonListItem
+		{
+		public:
+
+			PersonListItem(Person* person)
+			{
+				_value = person;
+			};
+
+			Person* GetValue()
+			{
+				return _value;
+			};
+
+			PersonListItem* Next = nullptr;
+			PersonListItem* Prev = nullptr;
+
+		private:
+
+			Person* _value;
+		};
 
 		PersonListItem* _head = nullptr;
 		PersonListItem* _tail = nullptr;

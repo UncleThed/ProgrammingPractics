@@ -46,13 +46,11 @@ int PersonList::IndexOf(Person* person)
 	{
 		if (searchedPerson->GetValue() == person)
 		{
-			cout << "Индекс человека: " << index;
 			return index;
 		}
 		index++;
 		searchedPerson = searchedPerson->Next;
 	}
-	cout << "Человек отсутствует";
 	return -1;
 }
 

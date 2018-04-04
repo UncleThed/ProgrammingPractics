@@ -9,11 +9,11 @@ enum Sex
 class Person
 {
 	public:
+		Person() {};
+		Person(char* name, char* surname, int age, Sex sex);
 
-		Person(char Name[20], char Surname[20], int Age, Sex Sex);
-
-		void SetName(char name[20]);
-		void SetSurname(char surname[20]);
+		void SetName(char* name);
+		void SetSurname(char* surname);
 		void SetAge(int age);
 		void SetSex(Sex sex);
 
@@ -22,17 +22,9 @@ class Person
 		int GetAge();
 		Sex GetSex();
 
-		Person* Read();
-		void Show(Person* person);
-
-		static Person* GetRandomPerson();
-
 	private:
-
-		bool CheckChar(char name[]);
-
-		char Name[20];
-		char Surname[20];
-		int Age;
-		Sex Sex;
+		char* _name;
+		char* _surname;
+		int _age;
+		Sex _sex;
 };

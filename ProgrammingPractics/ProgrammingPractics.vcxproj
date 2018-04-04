@@ -155,7 +155,7 @@
     <ClInclude Include="lab5.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonList.h" />
-    <ClInclude Include="PersonListItem.h" />
+    <ClInclude Include="PersonTools.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -169,7 +169,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonList.cpp" />
-    <ClCompile Include="PersonListItem.cpp" />
+    <ClCompile Include="PersonTools.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

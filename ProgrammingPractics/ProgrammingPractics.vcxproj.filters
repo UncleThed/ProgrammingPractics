@@ -75,7 +75,7 @@
     <ClInclude Include="PersonList.h">
       <Filter>Файлы заголовков\lab5</Filter>
     </ClInclude>
-    <ClInclude Include="PersonListItem.h">
+    <ClInclude Include="PersonTools.h">
       <Filter>Файлы заголовков\lab5</Filter>
     </ClInclude>
   </ItemGroup>
@@ -110,7 +110,7 @@
     <ClCompile Include="PersonList.cpp">
       <Filter>Исходные файлы\lab5</Filter>
     </ClCompile>
-    <ClCompile Include="PersonListItem.cpp">
+    <ClCompile Include="PersonTools.cpp">
       <Filter>Исходные файлы\lab5</Filter>
     </ClCompile>
   </ItemGroup>
