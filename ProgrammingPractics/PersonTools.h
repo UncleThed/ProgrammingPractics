@@ -4,4 +4,5 @@
 Person* ReadPerson();
 void ShowPerson(Person* person);
 Person* GetRandomPerson();
-bool CheckChar(char* name);
+Person* GetRandomPerson(Sex tempSex);
+bool CheckName(char* name);

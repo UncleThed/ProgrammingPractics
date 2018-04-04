@@ -79,6 +79,7 @@ void LaunchTask5()
 		case '5':
 		{
 			Person* person = ReadPerson();
+			cout << person->GetDescription() << endl;
 			ShowPerson(person);
 
 			system("pause");
