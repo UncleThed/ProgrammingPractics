@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void LaunchTask6()
+void LaunchTask7()
 {
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 

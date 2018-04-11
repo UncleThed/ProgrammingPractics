@@ -33,7 +33,7 @@ void Person::SetAge(int age)
 	}
 }
 
-void Person::SetSex(enum Sex sex)
+void Person::SetSex(Sex sex)
 {
 	_sex = sex;
 }

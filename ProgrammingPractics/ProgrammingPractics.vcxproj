@@ -156,6 +156,8 @@
     <ClInclude Include="lab4.h" />
     <ClInclude Include="lab5.h" />
     <ClInclude Include="lab6.h" />
+    <ClInclude Include="lab7.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonList.h" />
     <ClInclude Include="PersonTools.h" />
@@ -173,6 +175,8 @@
     <ClCompile Include="lab4.cpp" />
     <ClCompile Include="lab5.cpp" />
     <ClCompile Include="lab6.cpp" />
+    <ClCompile Include="lab7.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonList.cpp" />
