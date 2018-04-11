@@ -1,11 +1,12 @@
 #include "stdafx.h"
-#include "PersonList.h"
+#include "List.h"
 
 using namespace std;
 
-void PersonList::Add(Person* person)
+template <typename T>
+void List<T>::Add(T* data)
 {
-	PersonListItem* temp = new PersonListItem(person);
+	ListItem* temp = new ListItem(data);
 	if (!_head)
 	{
 		_head = temp;
@@ -19,14 +20,15 @@ void PersonList::Add(Person* person)
 	_count++;
 }
 
-Person* PersonList::Find(int index)
+template <typename T>
+T* List<T>::Find(int index)
 {
 	if (index < 0)
 	{
 		return nullptr;
 	}
 
-	PersonListItem* searchedItem = _head;
+	ListItem* searchedItem = _head;
 
 	for (int i = 0; i < index; i++)
 	{
@@ -38,29 +40,31 @@ Person* PersonList::Find(int index)
 	return searchedItem->GetValue();
 }
 
-int PersonList::IndexOf(Person* person)
+template <typename T>
+int List<T>::IndexOf(T* data)
 {
-	PersonListItem* searchedPerson = _head;
+	ListItem* searchedData = _head;
 	int index = 0;
-	while (searchedPerson)
+	while (searchedData)
 	{
-		if (searchedPerson->GetValue() == person)
+		if (searchedData->GetValue() == data)
 		{
 			return index;
 		}
 		index++;
-		searchedPerson = searchedPerson->Next;
+		searchedData = searchedData->Next;
 	}
 	return -1;
 }
 
-void PersonList::Remove(Person* person)
+template <typename T>
+void List<T>::Remove(T* data)
 {
-	PersonListItem* deletedItem = _head;
+	ListItem* deletedItem = _head;
 
-	if (person)
+	if (data)
 	{
-		while (deletedItem->GetValue() != person)
+		while (deletedItem->GetValue() != data)
 		{
 			if (!deletedItem->Next)
 			{
@@ -87,9 +91,10 @@ void PersonList::Remove(Person* person)
 	delete deletedItem;
 }
 
-void PersonList::RemoveAt(int index)
+template <typename T>
+void List<T>::RemoveAt(int index)
 {
-	PersonListItem* deletedItem = _head;
+	ListItem* deletedItem = _head;
 
 	if (index >= 0)
 	{
@@ -120,10 +125,11 @@ void PersonList::RemoveAt(int index)
 	delete deletedItem;
 }
 
-void PersonList::Clear()
+template <typename T>
+void List<T>::Clear()
 {
-	PersonListItem* temp = _head;
-	PersonListItem* tempNext;
+	ListItem* temp = _head;
+	ListItem* tempNext;
 	while (temp)
 	{
 		tempNext = temp->Next;
@@ -135,14 +141,16 @@ void PersonList::Clear()
 	_count = 0;
 }
 
-int PersonList::GetCount()
+template <typename T>
+int List<T>::GetCount()
 {
 	return _count;
 }
 
-void PersonList::ShowDescriptions()
+template <typename T>
+void List<T>::ShowDescriptions()
 {
-	PersonListItem* temp = _head;
+	ListItem* temp = _head;
 
 	if (temp)
 	{
@@ -170,9 +178,10 @@ void PersonList::ShowDescriptions()
 	cout << endl;
 }
 
-void PersonList::Show()
+template <typename T>
+void List<T>::Show()
 {
-	PersonListItem* temp = _head;
+	ListItem* temp = _head;
 
 	if (temp)
 	{

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "PersonList.h"
+#include "PersonTools.h"
 
 using namespace std;
 
@@ -12,15 +13,15 @@ void LaunchTask5()
 
 	PersonList list1;
 
-	list1.Add(Person::GetRandomPerson());
-	list1.Add(Person::GetRandomPerson());
-	list1.Add(Person::GetRandomPerson());
+	list1.Add(GetRandomPerson());
+	list1.Add(GetRandomPerson());
+	list1.Add(GetRandomPerson());
 
 	PersonList list2;
 
-	list2.Add(Person::GetRandomPerson());
-	list2.Add(Person::GetRandomPerson());
-	list2.Add(Person::GetRandomPerson());
+	list2.Add(GetRandomPerson());
+	list2.Add(GetRandomPerson());
+	list2.Add(GetRandomPerson());
 
 
 	while (AsciiValue != 27)
@@ -42,6 +43,7 @@ void LaunchTask5()
 		cout << "\n 2: Скопировать второго из первого списка во второй";
 		cout << "\n 3: Удалить второго из первого списка";
 		cout << "\n 4: Очистить первый список";
+		cout << "\n 5: Ввод-вывод персоны";
 
 		SetConsoleTextAttribute(hStdOut, 6);
 		cout << "\nДля завершения работы программы нажмите Esc";
@@ -56,7 +58,7 @@ void LaunchTask5()
 		{
 		case '1':
 		{
-			list1.Add(Person::GetRandomPerson());
+			list1.Add(GetRandomPerson());
 			break;
 		}
 		case '2':
@@ -72,6 +74,15 @@ void LaunchTask5()
 		case '4':
 		{
 			list1.Clear();
+			break;
+		}
+		case '5':
+		{
+			Person* person = ReadPerson();
+			cout << person->GetDescription() << endl;
+			ShowPerson(person);
+
+			system("pause");
 			break;
 		}
 		}

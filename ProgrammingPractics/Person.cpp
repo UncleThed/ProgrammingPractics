@@ -3,157 +3,91 @@
 
 using namespace std;
 
-Person::Person(char Name[20], char Surname[20], int Age, enum Sex Sex)
+Person::Person(char* name, char* surname, int age, enum Sex sex)
 {
-	SetName(Name);
-	SetSurname(Surname);
-	SetAge(Age);
-	SetSex(Sex);
+	SetName(name);
+	SetSurname(surname);
+	SetAge(age);
+	SetSex(sex);
 }
 
-void Person::SetName(char name[20])
+void Person::SetName(char* name)
 {
-	strcpy_s(Name, name);
+	_name = name;
 }
 
-void Person::SetSurname(char surname[20])
+void Person::SetSurname(char* surname)
 {
-	strcpy_s(Surname, surname);
+	_surname = surname;
 }
 
 void Person::SetAge(int age)
 {
-	Age = age;
+	if (age > 0)
+	{
+		_age = age;
+	}
+	else
+	{
+		_age = 1;
+	}
 }
 
-void Person::SetSex(enum Sex sex)
+void Person::SetSex(Sex sex)
 {
-	Sex = sex;
+	_sex = sex;
 }
 
 char* Person::GetName()
 {
-	return Name;
+	return _name;
 }
 
 char* Person::GetSurname()
 {
-	return Surname;
+	return _surname;
 }
 
 int Person::GetAge()
 {
-	return Age;
+	return _age;
 }
 
 Sex Person::GetSex()
 {
-	return Sex;
+	return _sex;
 }
 
-Person* Person::Read()
+char* Person::GetDescription()
 {
-	char tempName[20];
-	char tempSurname[20];
-	unsigned int tempAge;
-	enum Sex tempSex;
+	char* description = new char[200];
+	*description = '\0';
 
-	bool key = true;
+	Concatenate(description, _name);
+	Concatenate(description, " ");
+	Concatenate(description, _surname);
+	Concatenate(description, ", ");
 
-	while (key)
+	char* ageStr = new char[10];
+	_itoa_s(_age, ageStr, 10, 10);
+	Concatenate(description, ageStr);
+	delete ageStr;
+
+	Concatenate(description, " years old, ");
+	if (_sex)
 	{
-		cout << endl << "Введите имя: ";
-		cin >> tempName;
-		key = !CheckChar(tempName);
-	}
-
-	key = true;
-
-	while (key)
-	{
-		cout << endl << "Введите фамилию: ";
-		cin >> tempSurname;
-		key = !CheckChar(tempSurname);
-	}
-
-	cout << endl << "Введите пол (0 - женщина, 1 - мужчина): ";
-	int n;
-	do
-	{
-		n = EnterInteger();
-	} while (n != 0 && n != 1);
-
-	tempSex = enum Sex(n);
-
-	cout << endl << "Введите возраст: ";
-	tempAge = EnterInteger();
-
-	return new Person(tempName, tempSurname, tempAge, tempSex);
-}
-
-void Person::Show(Person* person)
-{
-	cout << "Имя: " << person->Name << endl;
-	cout << "Фамилию: " << person->Surname << endl;
-	cout << "Возраст: " << person->Age << endl;
-	if (person->Sex)
-	{
-		cout << "Пол: Male" << endl;
+		Concatenate(description, " male.");
 	}
 	else
 	{
-		cout << "Пол: Female" << endl;
+		Concatenate(description, " female.");
 	}
+
+	return description;
 }
 
-Person* Person::GetRandomPerson()
+Person::~Person()
 {
-	const char* MaleNames[] = { "Иван", "Дмитрий", "Олег", "Александр", "Андрей", "Денис", "Павел", "Сергей", "Владимир", "Константин", "Георгий", "Виктор" };
-	const char* FemaleNames[] = { "Мария", "Анна", "Екатерина", "Елизавета", "Кристина", "Ксения", "Елена", "Галина", "Анастасия", "Виктория", "Валентина", "София" };
-	const char* MaleSurnames[] = { "Макаров", "Достоевский", "Захаров", "Кузнецов", "Иванов", "Смирнов", "Васильев", "Петров", "Соколов", "Дубровский", "Новиков", "Борисов" };
-	const char* FemaleSurnames[] = { "Дмириева", "Медведева", "Антоновна", "Жукова", "Орлова", "Козлова", "Волкова", "Морозова", "Быкова", "Миронова", "Власова", "Тихонова" };
-
-	char tempName[20];
-	char tempSurname[20];
-	int tempAge = 1 + rand() % 80;
-	enum Sex tempSex = enum Sex(rand() % 2);
-
-	if (tempSex)
-	{
-		strcpy_s(tempName, MaleNames[rand() % 12]);
-		strcpy_s(tempSurname, MaleSurnames[rand() % 12]);
-	}
-	else
-	{
-		strcpy_s(tempName, FemaleNames[rand() % 12]);
-		strcpy_s(tempSurname, FemaleSurnames[rand() % 12]);
-	}
-	return new Person(tempName, tempSurname, tempAge, tempSex);
-}
-
-bool Person::CheckChar(char name[])
-{
-	bool isTrueName = true;
-	for (int i = 0; i < strlen(name); i++)
-	{
-		if (isdigit(name[i]) || isspace(name[i]))
-		{
-			isTrueName = false;
-			break;
-		}
-
-		if (name[i] == '-')
-		{
-			if (islower(name[i + 1]))
-			{
-				name[i + 1] = toupper(name[i + 1]);
-			}
-			else
-			{
-				isTrueName = false;
-				break;
-			}
-		}
-	}
-	return isTrueName;
-}
+	delete _name;
+	delete _surname;
+};

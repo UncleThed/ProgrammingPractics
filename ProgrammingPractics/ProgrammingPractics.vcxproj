@@ -147,35 +147,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Adult.h" />
+    <ClInclude Include="Child.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />
     <ClInclude Include="lab4.h" />
     <ClInclude Include="lab5.h" />
+    <ClInclude Include="lab6.h" />
+    <ClInclude Include="lab7.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonList.h" />
-    <ClInclude Include="PersonListItem.h" />
+    <ClInclude Include="PersonTools.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="strfunc.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adult.cpp" />
+    <ClCompile Include="Child.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="lab1.cpp" />
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="lab3.cpp" />
     <ClCompile Include="lab4.cpp" />
     <ClCompile Include="lab5.cpp" />
+    <ClCompile Include="lab6.cpp" />
+    <ClCompile Include="lab7.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonList.cpp" />
-    <ClCompile Include="PersonListItem.cpp" />
+    <ClCompile Include="PersonTools.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="strfunc.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

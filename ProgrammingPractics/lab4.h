@@ -16,7 +16,6 @@ struct List
 	Node* tail = NULL;
 };
 
-void CopyConstString(char* string1, const char* string2);
 Person MakeRandomPerson();
 
 void AddLast(List* list);

@@ -1,4 +1,5 @@
 #pragma once
+#include "strfunc.h"
 
 enum Sex
 {
@@ -9,30 +10,25 @@ enum Sex
 class Person
 {
 	public:
+		Person() {};
+		Person(char* name, char* surname, int age, Sex sex);
 
-		Person(char Name[20], char Surname[20], int Age, Sex Sex);
-
-		void SetName(char name[20]);
-		void SetSurname(char surname[20]);
-		void SetAge(int age);
+		void SetName(char* name);
+		void SetSurname(char* surname);
+		virtual void SetAge(int age);
 		void SetSex(Sex sex);
 
 		char* GetName();
 		char* GetSurname();
 		int GetAge();
 		Sex GetSex();
+		char* GetDescription();
 
-		Person* Read();
-		void Show(Person* person);
+		~Person();
 
-		static Person* GetRandomPerson();
-
-	private:
-
-		bool CheckChar(char name[]);
-
-		char Name[20];
-		char Surname[20];
-		int Age;
-		Sex Sex;
+	protected:
+		char* _name;
+		char* _surname;
+		int _age;
+		Sex _sex;
 };
