@@ -1,0 +1,33 @@
+* e1eee38 2018-04-12 | Создан класс List (HEAD -> feature/lab6) [theodore]
+* ca1385b 2018-04-05 | Сделана lab6 (origin/feature/lab6) [theodore]
+* 6183f3c 2018-04-04 | Исправлены исправления lab5 [theodore]
+* 733c37c 2018-04-04 | Исправлены недочеты lab5 [theodore]
+* 9d21a65 2018-03-29 | Завершена 5 лаба. Созданы три класса для работы со списком (origin/develop, develop) [theodore]
+*   7447760 2018-03-28 | Merge branch 'feature/lab4' into develop [theodore]
+[32m|[m[33m\[m  
+[32m|[m * d2ca9cb 2018-03-28 | Завершена 5 лаба [theodore]
+[32m|[m * bdc8ab8 2018-03-15 | implemented a list of Person structures [theodore]
+[32m|[m[32m/[m  
+*   d959cdc 2018-03-14 | Merge branch 'feature/lab3' into develop [theodore]
+[34m|[m[35m\[m  
+[34m|[m * 8202489 2018-03-14 | add struct Person [theodore]
+[34m|[m * a00662a 2018-03-14 | add functions for working with strings [theodore]
+[34m|[m[34m/[m  
+*   0770b60 2018-02-28 | Merge branch 'feature/lab2' into develop [theodore]
+[36m|[m[1;31m\[m  
+[36m|[m * f6732f2 2018-02-28 | add comments and improve the interface [theodore]
+* [1;31m|[m   a81300d 2018-02-28 | Merge branch 'feature/lab2' into develop [theodore]
+[1;32m|[m[1;31m\[m [1;31m\[m  
+[1;32m|[m [1;31m|[m[1;31m/[m  
+[1;32m|[m * 2b769d3 2018-02-27 | add all functions to lab2.cpp [theodore]
+[1;32m|[m * a957cbd 2018-02-27 | add GetRoots, GetPower, PlayGuessNumber functions to lab2.cpp [theodore]
+[1;32m|[m * 7fa3e4f 2018-02-26 | add PrintHelloWorld, MakeCalculation, Divide functions to lab2.cpp [theodore]
+[1;32m|[m[1;32m/[m  
+*   8c7ef46 2018-02-24 | Merge branch 'feature/lab1' into develop [theodore]
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * e951c03 2018-02-24 | add a greeting to select functions [theodore]
+[1;34m|[m * dc61e41 2018-02-24 | add all functions to lab1.cpp [theodore]
+[1;34m|[m * 7c47ee1 2018-02-24 | add four functions to lab1.cpp [theodore]
+[1;34m|[m[1;34m/[m  
+* 8cc6fbc 2018-02-24 | add main.cpp [theodore]
+* d971c85 2018-02-24 | Initial commit (master) [theodore]

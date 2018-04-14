@@ -150,16 +150,7 @@ void PersonList::ShowDescriptions()
 		cout << "----------------------------------------------------\n";
 		while (temp)
 		{
-			if (temp->GetValue()->GetAge() < 18)
-			{
-				Child* child = (Child*)temp->GetValue();
-				cout << child->GetDescription() << endl;
-			}
-			else
-			{
-				Adult* adult = (Adult*)temp->GetValue();
-				cout << adult->GetDescription() << endl;
-			}
+			cout << temp->GetValue()->GetDescription() << endl;
 			temp = temp->Next;
 		}
 	}

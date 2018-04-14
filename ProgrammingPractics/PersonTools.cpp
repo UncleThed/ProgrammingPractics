@@ -4,12 +4,6 @@
 
 using namespace std;
 
-ostream& operator << (ostream &os, Person* person)
-{
-	os << '(' << person->GetName() << ", " << person->GetSurname() << ", " << person->GetAge() << ", " << person->GetSex() << ')';
-	return os;
-}
-
 istream& operator >> (istream& is, Person* person)
 {
 	char* tempName = new char[20];

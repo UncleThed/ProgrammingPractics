@@ -158,8 +158,5 @@
     <ClCompile Include="lab7.cpp">
       <Filter>Исходные файлы\lab7</Filter>
     </ClCompile>
-    <ClCompile Include="List.cpp">
-      <Filter>Исходные файлы\lab7</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

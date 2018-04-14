@@ -176,7 +176,6 @@
     <ClCompile Include="lab5.cpp" />
     <ClCompile Include="lab6.cpp" />
     <ClCompile Include="lab7.cpp" />
-    <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonList.cpp" />

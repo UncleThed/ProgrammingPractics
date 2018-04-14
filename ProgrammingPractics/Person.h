@@ -22,7 +22,7 @@ class Person
 		char* GetSurname();
 		int GetAge();
 		Sex GetSex();
-		char* GetDescription();
+		virtual char* GetDescription();
 
 		~Person();
 
